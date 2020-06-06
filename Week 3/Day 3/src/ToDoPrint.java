@@ -10,8 +10,12 @@
 //      - Diablo
 
 public class ToDoPrint {
-  public static void main(String... args) {
+  public static void main(String[] args) {
     String todoText = " - Buy milk\n";
-    System.out.println(todoText);
+    StringBuilder myToDo = new StringBuilder();
+    myToDo.append("My todo:\n");
+    StringBuilder restOfList = new StringBuilder();
+    restOfList.append(" - Download Games \n \t -Diablo");
+    System.out.println(myToDo + todoText + restOfList);
   }
 }
