@@ -12,6 +12,7 @@ public class CenteredSquare {
     int squareHeight = 10;
     int horizontalStart = ((WIDTH / 2) - (squareWidth / 2));
     int verticalStart = ((HEIGHT / 2) - (squareHeight / 2));
+    graphics.setColor (Color.green);
     graphics.fillRect (horizontalStart, verticalStart, squareWidth, squareHeight);
   }
 
