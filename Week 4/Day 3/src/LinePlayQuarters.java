@@ -1,41 +1,42 @@
 import javax.swing.*;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 import static java.awt.Window.getOwnerlessWindows;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class LinePlayQuarters {
   public static void mainDraw(Graphics graphics) {
-    int size = 4;
-    for (int x = 1; x <= size + 1; x++) {
-      int Width = WIDTH / x;
-      int Height = HEIGHT / x;
-      if (x % 2 == 1) {
-        int start = 0;
-        graphics.setColor(new Color(204, 51, 255));
-        repeatTop(graphics, size, start);
-        graphics.setColor(new Color(51, 204, 51));
-        repeatBot(graphics, size, start);
-      } else {
-        int start = WIDTH / 2;
-        graphics.setColor(new Color(204, 51, 255));
-        repeatTop(graphics, size, start);
-        graphics.setColor(new Color(51, 204, 51));
-        repeatBot(graphics, size, start);
+    int pieces = 4;
+    int size = pieces / 2;
+    ArrayList<Integer> startVertical = new ArrayList<>();
+    startVertical.add (0);
+    startVertical.add (WIDTH / 2);
+    startVertical.add (WIDTH / 4);
+    startVertical.add (WIDTH / 8);
+    int startHorizontal = 0;
+    for (int x = 0; x < pieces; x++) {
+      graphics.setColor(new Color(204, 51, 255));
+      for (int i = 0; i < 15; i++) {
+        repeatTop(graphics, size, startVertical (i), startHorizontal);
+      }
+      graphics.setColor(new Color(51, 204, 51));
+      for (int j = 0; j < 15; j++) {
+        repeatBot(graphics, size, startVertical[j], startHorizontal);
       }
     }
   }
 
-  public static void repeatTop(Graphics graphics, int size, int start) {
+  public static void repeatTop(Graphics graphics, int size, int startVertical, int startHorizontal) {
     for (int i = 0; i < 15; i++) {
-      graphics.drawLine(start + (i * ((WIDTH / size) / 15)), start, (start + (WIDTH / size)), start + (i * ((HEIGHT / size) / 15)));
+      graphics.drawLine(startVertical + (i * ((WIDTH / size) / 15)), startHorizontal, (startVertical + (WIDTH / size)), startHorizontal + (i * ((HEIGHT / size) / 15)));
     }
   }
 
-  public static void repeatBot(Graphics graphics, int size, int start) {
+  public static void repeatBot(Graphics graphics, int size, int startVertical, int startHorizontal) {
     for (int j = 0; j < 15; j++) {
-      graphics.drawLine(start, start + (j * ((HEIGHT / size) / 15)), start + (j * ((WIDTH / size) / 15)), start + (HEIGHT / size));
+      graphics.drawLine(startVertical, startHorizontal + (j * ((HEIGHT / size) / 15)), startVertical + (j * ((WIDTH / size) / 15)), startHorizontal + (HEIGHT / size));
     }
   }
 
