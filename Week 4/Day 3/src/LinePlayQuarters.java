@@ -1,29 +1,36 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 import static java.awt.Window.getOwnerlessWindows;
+import static java.awt.image.ImageObserver.HEIGHT;
+import static java.awt.image.ImageObserver.WIDTH;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class LinePlayQuarters {
   public static void mainDraw(Graphics graphics) {
-    int pieces = 4;
-    int size = pieces / 2;
-    ArrayList<Integer> startVertical = new ArrayList<>();
-    startVertical.add (0);
-    startVertical.add (WIDTH / 2);
-    startVertical.add (WIDTH / 4);
-    startVertical.add (WIDTH / 8);
-    int startHorizontal = 0;
-    for (int x = 0; x < pieces; x++) {
-      graphics.setColor(new Color(204, 51, 255));
-      for (int i = 0; i < 15; i++) {
-        repeatTop(graphics, size, startVertical (i), startHorizontal);
-      }
-      graphics.setColor(new Color(51, 204, 51));
-      for (int j = 0; j < 15; j++) {
-        repeatBot(graphics, size, startVertical[j], startHorizontal);
+    int pieces = 64;
+    int size = (int) Math.sqrt(pieces);
+    for (int x = 0; x < size + 1; x++) {
+      int Width = WIDTH / size;
+      int Height = HEIGHT / size;
+      int startVertical = 0;
+      int startHorizontal = 0;
+      for (int y = 0; y < size; y++) {
+        startVertical = y * (WIDTH / size);
+        startHorizontal = 0;
+        graphics.setColor(new Color(204, 51, 255));
+        repeatTop(graphics, size, startVertical, startHorizontal);
+        graphics.setColor(new Color(51, 204, 51));
+        repeatBot(graphics, size, startVertical, startHorizontal);
+        for (int z = 0; z < size - 1; z++) {
+          startVertical = y * (WIDTH / size);
+          startHorizontal = (HEIGHT / size) + (z * (HEIGHT / size));
+          graphics.setColor(new Color(204, 51, 255));
+          repeatTop(graphics, size, startVertical, startHorizontal);
+          graphics.setColor(new Color(51, 204, 51));
+          repeatBot(graphics, size, startVertical, startHorizontal);
+        }
       }
     }
   }
@@ -55,11 +62,11 @@ public class LinePlayQuarters {
     jFrame.pack();
   }
 
-  static class ImagePanel extends JPanel {
-    @Override
-    protected void paintComponent(Graphics graphics) {
-      super.paintComponent(graphics);
-      mainDraw(graphics);
-    }
+static class ImagePanel extends JPanel {
+  @Override
+  protected void paintComponent(Graphics graphics) {
+    super.paintComponent(graphics);
+    mainDraw(graphics);
   }
+}
 }
