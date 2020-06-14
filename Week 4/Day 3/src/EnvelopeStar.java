@@ -8,11 +8,18 @@ public class EnvelopeStar {
   public static void mainDraw(Graphics graphics) {
     int lines = 15;
     int size = (WIDTH / 2) / lines;
-    for (int i = 0; i < size; i++) {
+    graphics.setColor(new Color(51, 204, 51));
+    for (int i = 0; i <= size; i++) {
       graphics.drawLine(WIDTH / 2, (HEIGHT / 2) - (i * lines), i * lines, HEIGHT / 2);
     }
-    for (int i = 0; i < size; i++) {
-      graphics.drawLine(WIDTH / 2, (HEIGHT / 2) + (i * lines), (WIDTH / 2) - (i * lines), HEIGHT / 2);
+    for (int i = 0; i <= size; i++) {
+      graphics.drawLine(WIDTH / 2, (HEIGHT / 2) + (i * lines), i * lines, HEIGHT / 2);
+    }
+    for (int i = 0; i <= size; i++) {
+      graphics.drawLine(WIDTH / 2, (HEIGHT / 2) - (i * lines), WIDTH - (i * lines), HEIGHT / 2);
+    }
+    for (int i = 0; i <= size; i++) {
+      graphics.drawLine(WIDTH / 2, (WIDTH / 2) + (i * lines), WIDTH - (i * lines), HEIGHT / 2);
     }
   }
 
