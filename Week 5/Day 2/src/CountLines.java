@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 
 public class CountLines {
   public static void main(String[] args) {
-    String fileName = ("my-text.txt");
+    String fileName = ("test.txt");
     long counter = numberOfLines(fileName);
     System.out.println(counter);
   }
