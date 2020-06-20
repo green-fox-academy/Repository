@@ -20,7 +20,7 @@ public class Animal {
     thirst += 1;
   }
 
-  public void status(){
+  public void printStatus(){
     System.out.println(hunger + "\n" + thirst + "\n");
   }
 }

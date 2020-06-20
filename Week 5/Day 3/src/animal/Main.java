@@ -19,6 +19,6 @@ public class Main {
     dog.eat();
     dog.eat();
     dog.drink();
-    dog.status();
+    dog.printStatus();
   }
 }
