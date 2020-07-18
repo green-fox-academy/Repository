@@ -22,10 +22,13 @@ public class ToDo {
       linkCommandLine();
     } else if (args[0].equals("-l")) {
       listTasks();
-    } else if (args[0].equals("-a")) {
-      addTask(path, toDoList, args[1]);
-    }
-
+    } else try {
+      if (args[0].equals("-a")) {
+        addTask(path, toDoList, args[1]);
+      }
+    }catch (Exception ex) {
+      System.out.println("Unable to add: no task provided");
+    } 
   }
 
   public static void linkCommandLine() {
