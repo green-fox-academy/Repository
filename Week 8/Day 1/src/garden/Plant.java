@@ -9,11 +9,7 @@ public class Plant {
   }
 
   public boolean needsWater() {
-    if (waterLevel < 5) {
-      return true;
-    } else {
-      return false;
-    }
+    return waterLevel < 5;
   }
 
   public void waterPlants (int waterAmount) {
@@ -26,5 +22,12 @@ public class Plant {
     } else {
       System.out.println("The " + name + " does not need water!");
     }
+  }
+  public int counter (){
+    int counter = 1;
+    if (needsWater()) {
+      counter += counter;
+    }
+    return counter;
   }
 }

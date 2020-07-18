@@ -23,7 +23,7 @@ public class Garden {
   public void water (int waterAmount) {
     for (Plant p : garden) {
       if (p.needsWater()) {
-        p.waterPlants(waterAmount);
+        p.waterPlants(waterAmount / p.counter());
       }
     }
   }
