@@ -19,4 +19,9 @@ public class Tree extends Plant{
       System.out.println("The " + name + " Tree does not need water!");
     }
   }
+
+  @Override
+  public void waterPlants (int waterAmount) {
+    waterLevel += waterAmount * .4;
+  }
 }

@@ -14,7 +14,7 @@ public class Main {
 
     garden.getGardenStatus();
 
-    garden.water(6);
+    garden.water(40);
 
     System.out.println();
     garden.getGardenStatus();

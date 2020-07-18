@@ -13,4 +13,9 @@ public class Flower extends Plant {
       System.out.println("The " + name + " Flower does not need water!");
     }
   }
+
+  @Override
+  public void waterPlants (int waterAmount) {
+    waterLevel += waterAmount * .75;
+  }
 }
