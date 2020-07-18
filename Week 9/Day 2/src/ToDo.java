@@ -26,9 +26,9 @@ public class ToDo {
       if (args[0].equals("-a")) {
         addTask(path, toDoList, args[1]);
       }
-    }catch (Exception ex) {
+    } catch (Exception ex) {
       System.out.println("Unable to add: no task provided");
-    } 
+    }
   }
 
   public static void linkCommandLine() {
@@ -68,4 +68,5 @@ public class ToDo {
       System.out.println("Cannot read file");
     }
   }
+
 }
