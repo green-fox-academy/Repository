@@ -12,18 +12,12 @@ public class ToDo {
     List<String> toDoList = new ArrayList<>();
     if (args.length == 0) {
       linkCommandLine();
+    } else if (args[0].equals("-l")) {
+      listTask();
     }
-    else if (args[0].equals("-l")) {
-      try {
-        Files.readAllLines(Paths.get("ToDo.txt"));
-        for (String task: Files.readAllLines(Paths.get("ToDo.txt"))) {
-          System.out.println(task);
-        }
-      } catch (Exception ex) {
-        System.out.println("Cannot read file");
-      }
-    }
+
     addTask(toDoList, "Walk the Dog");
+
   }
 
   public static void linkCommandLine() {
@@ -45,6 +39,21 @@ public class ToDo {
       Files.write(path, toDoList);
     } catch (Exception ex) {
       System.out.println("Unable to write file");
+    }
+  }
+
+  public static void listTask() {
+    try {
+      Files.readAllLines(Paths.get("ToDo.txt"));
+      if (Files.size(Paths.get("ToDo.txt")) == 0) {
+        System.out.println("No todos for today! :)");
+      } else {
+        for (String task : Files.readAllLines(Paths.get("ToDo.txt"))) {
+          System.out.println(task);
+        }
+      }
+    } catch (Exception ex) {
+      System.out.println("Cannot read file");
     }
   }
 }
