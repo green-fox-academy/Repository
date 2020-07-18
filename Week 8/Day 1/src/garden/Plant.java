@@ -2,7 +2,7 @@ package garden;
 
 public class Plant {
   private String name;
-  private int waterLevel;
+  protected int waterLevel;
 
   public Plant(String name) {
     this.name = name;
