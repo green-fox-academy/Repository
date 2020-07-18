@@ -17,11 +17,13 @@ public class Main {
     garden.water(40);
 
     System.out.println();
+    System.out.println("Watering with 40");
     garden.getGardenStatus();
 
     garden.water(70);
 
     System.out.println();
+    System.out.println("Watering with 70");
     garden.getGardenStatus();
   }
 }
