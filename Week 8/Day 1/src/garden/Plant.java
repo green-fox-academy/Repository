@@ -1,7 +1,7 @@
 package garden;
 
 public class Plant {
-  private String name;
+  protected final String name;
   protected int waterLevel;
 
   public Plant(String name) {
@@ -15,6 +15,7 @@ public class Plant {
       return false;
     }
   }
+
 
   public void getPlantStatus() {
     if (needsWater()) {
