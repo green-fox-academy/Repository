@@ -7,7 +7,7 @@ public class Main {
 
     Garden garden = new Garden();
 
-    garden.addPlant(new Plant("yellow"));
-    garden.addPlant(new Plant("blue"));
+    garden.addPlant(new Flower("yellow"));
+    garden.addPlant(new Flower("blue"));
   }
 }

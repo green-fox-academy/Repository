@@ -6,4 +6,7 @@ public class Plant {
   public Plant(String name){
     this.name = name;
   }
+
+  public Plant(){
+  }
 }
