@@ -19,4 +19,12 @@ public class Garden {
       p.getPlantStatus();
     }
   }
+
+  public void water (int waterAmount) {
+    for (Plant p : garden) {
+      if (p.needsWater()) {
+        p.waterPlants(waterAmount);
+      }
+    }
+  }
 }

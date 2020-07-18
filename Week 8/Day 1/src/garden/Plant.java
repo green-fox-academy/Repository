@@ -16,6 +16,9 @@ public class Plant {
     }
   }
 
+  public void waterPlants (int waterAmount) {
+    waterLevel += waterAmount;
+  }
 
   public void getPlantStatus() {
     if (needsWater()) {
