@@ -2,12 +2,25 @@ package garden;
 
 public class Plant {
   private String name;
+  private int waterLevel;
 
-  public Plant(String name){
+  public Plant(String name) {
     this.name = name;
   }
 
+  public boolean needsWater() {
+    if (waterLevel < 5) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   public void getPlantStatus() {
-    System.out.println(name);
+    if (needsWater()) {
+      System.out.println("The " + name + " needs water!");
+    } else {
+      System.out.println("The " + name + " does not need water!");
+    }
   }
 }
