@@ -9,6 +9,8 @@ public class Main {
 
     garden.addPlant(new Flower("Yellow"));
     garden.addPlant(new Flower("Blue"));
+    garden.addPlant(new Tree("Purple"));
+    garden.addPlant(new Tree("Orange"));
 
     garden.getGardenStatus();
   }
