@@ -7,6 +7,7 @@ public class Plant {
     this.name = name;
   }
 
-  public Plant(){
+  public void getPlantStatus() {
+    System.out.println(name);
   }
 }
