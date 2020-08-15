@@ -10,16 +10,11 @@ import java.util.concurrent.atomic.AtomicLong;
 @Controller
 public class HelloWebController {
 
-  public String name;
   AtomicLong atomicLong = new AtomicLong();
-
-  public void setName(@RequestParam(required = false)String name) {
-    this.name = name;
-  }
 
 
   @RequestMapping("/web/greeting")
-  public String greeting(Model model, @RequestParam(required = false)String name) {
+  public String greeting(Model model, @RequestParam(required = false) String name) {
     model.addAttribute("name", name);
     model.addAttribute("counter", atomicLong.incrementAndGet());
     return "greeting";
