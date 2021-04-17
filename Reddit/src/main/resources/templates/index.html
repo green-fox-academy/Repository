@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<a href="/submit">Submit</a>
+<h1>
+    Trending Posts
+</h1>
+<div th:each="post : ${posts}">
+    <h2 th:text="${post.getUser()}"></h2>
+    <h3 th:text="${post.getMessage()}"></h3>
+</div>
+</body>
+</html>

@@ -9,7 +9,6 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Controller
 public class HelloWebController {
-
   AtomicLong atomicLong = new AtomicLong();
 
 
@@ -19,4 +18,6 @@ public class HelloWebController {
     model.addAttribute("counter", atomicLong.incrementAndGet());
     return "greeting";
   }
+
+
 }
