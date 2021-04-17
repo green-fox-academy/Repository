@@ -34,7 +34,7 @@ class Flower extends Plant {
         this.waterMultiplier = 0.75;
     }
 
-    doesItNeedWater ():string{
+    doesItNeedWater (): string{
         if (this.waterLevel < 5) {
             return ' needs water!';
         } else {
@@ -51,7 +51,7 @@ class Tree extends Plant{
         this.waterMultiplier = 0.40;
     }
 
-    doesItNeedWater ():string{
+    doesItNeedWater (): string{
         if (this.waterLevel < 10) {
             return ' needs water!';
         } else {
@@ -69,17 +69,17 @@ class Garden {
         this.garden = [];
     }
 
-    addFlower (color: string) {
+    addFlower (color: string): void {
         let flower = new Flower(color);
         this.garden.push(flower)
     }
 
-    addTree (color: string) {
+    addTree (color: string): void {
         let tree = new Tree(color);
         this.garden.push(tree)
     }
 
-    showGarden () {
+    showGarden (): void {
         for (let i: number = 0; i < this.garden.length; i++) {
             if (this.garden[i] instanceof Flower){
             console.log('This ' + this.garden [i].getColor() + ' Flower' + this.garden [i].doesItNeedWater());
@@ -95,7 +95,7 @@ class Garden {
         let waterPerPlant = Math.round(waterAmount / gardenSize);
 
         for (let i: number = 0; i < this.garden.length; i++) {
-            this.garden [i].water(waterPerPlant);
+            this.garden[i].water(waterPerPlant);
         }
     }
 }
